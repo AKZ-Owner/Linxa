@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Mengarahkan... | Linxa</title>
+  <script>
+    const redirectTo = "https://chat.whatsapp.com/FiyZy5UAZHNLZZ3QMzTeuf"; // GANTI sesuai path
+  </script>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-white text-gray-800 font-sans flex items-center justify-center min-h-screen px-4">
+
+  <div class="text-center max-w-sm w-full">
+    <h1 class="text-xl font-semibold text-blue-600 mb-2">Mengalihkan Anda...</h1>
+    <p class="text-sm mb-4">Anda akan diarahkan ke tujuan dalam <span id="countdown" class="font-bold text-blue-500"></span> detik.</p>
+
+    <div class="text-xs bg-gray-100 rounded p-2 break-words mb-3 text-blue-800" id="target-url">
+    
+    </div>
+
+    <p class="text-sm">Jika tidak otomatis, klik <a href="#" id="manual" class="text-blue-600 underline">di sini</a></p>
+
+    <footer class="mt-6 text-xs text-gray-400">
+      &copy; 2025 Linxa Platform — AkuzzDev
+    </footer>
+  </div>
+
+  <script>
+    const countdownEl = document.getElementById("countdown");
+    const manualLink = document.getElementById("manual");
+    const targetUrlEl = document.getElementById("target-url");
+
+    targetUrlEl.textContent = redirectTo;
+    manualLink.href = redirectTo;
+
+    let count = 3;
+    const timer = setInterval(() => {
+      count--;
+      countdownEl.textContent = count;
+      if (count <= 0) {
+        clearInterval(timer);
+        window.location.href = redirectTo;
+      }
+    }, 1000);
+  </script>
+
+</body>
+</html>
